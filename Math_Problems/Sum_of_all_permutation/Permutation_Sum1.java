@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-class Main 
+class Permuatation_Sum1
 {
 	//Sum of all possible permutations O(logn)
     static long fac(int n)
@@ -17,6 +17,7 @@ class Main
         int n , temp ;
         Scanner sc = new Scanner(System.in) ;
         n = sc.nextInt() ;
+        sc.close();
         temp = n ;
             
         long p = 1 ;
