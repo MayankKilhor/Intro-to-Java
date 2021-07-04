@@ -1,7 +1,5 @@
 import java.util.*;
-class LinkedList{
-  Node head;
-  static class Node{
+class Node{
     int data;
     Node next;
     public Node(int data){
@@ -9,6 +7,9 @@ class LinkedList{
       this.next = null;
     }
   }
+class LinkedList{
+  Node head;
+  
   public LinkedList append(LinkedList list , int data){
     Node newnode = new Node(data);
     Node temp = head;
@@ -22,6 +23,47 @@ class LinkedList{
       temp.next = newnode;
     }
     return list;
+  }
+  public Node sorted(Node l1, Node l2){
+    if(l1 == null){
+      return l2;
+    }if(l2 == null){
+      return l1;
+    }
+    Node temp = new Node(-1);
+    Node head = temp;
+    while (l1 != null && l2 != null) {
+
+			if (l1.data < l2.data) {
+
+				temp.next = l1;
+				temp = temp.next;
+				l1 = l1.next;
+			}
+
+			else {
+
+				temp.next = l2;
+				temp = temp.next;
+				l2 = l2.next;
+			}
+		}
+
+		while (l2 != null) {
+
+			temp.next = l2;
+			temp = temp.next;
+			l2 = l2.next;
+		}
+
+		while (l1 != null) {
+
+			temp.next = l1;
+			temp = temp.next;
+			l1 = l1.next;
+		}
+
+		return head.next;
   }
   public LinkedList merge(LinkedList list1 , LinkedList list2){
     Node temp = list1.head;
@@ -82,9 +124,17 @@ class Main
       data = sc.nextInt();
       list2.append(list2,data);
     }
-    LinkedList list3 = list1.merge(list1,list2);
-    list3.sort(list3);
-    list3.display();
+    Node ans = list1.sorted(list1.head, list2.head);
+
+	Node temp = ans;
+    while (temp != null) {
+
+        System.out.print(temp.data + "->");
+        temp = temp.next;
+    }
+
+    System.out.print("NULL");
+  
 
   }
 }
