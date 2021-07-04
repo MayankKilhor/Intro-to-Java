@@ -28,13 +28,22 @@ class LinkedList
     public void display()
     {
         Node temp=head;
+      if(temp.next == null || temp == null){
+         System.out.println("Deletion of second last element is not possible");
+        }else{
+      	while(temp.next.next.next != null){
+          temp = temp.next;
+        }
+          temp.next = temp.next.next;
+          temp = head;
         while(temp!=null)
         {
-            System.out.println(temp.data);
+            System.out.print(temp.data +" ");
             temp=temp.next;
         }
-    }
     
+    }
+    }
 }
 public class Main
 {
