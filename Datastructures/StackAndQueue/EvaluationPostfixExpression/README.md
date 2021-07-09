@@ -1,0 +1,82 @@
+# Evaluation of Postfix Expression
+## Given a postfix expression, the task is to evaluate the expression and print the final value. Operators will include only the basic arithmetic operators like /,*,+, and -. 
+
+
+
+Format:
+
+﻿Input:
+
+The first line of input contains an integer T denoting the number of test cases. Then, T test cases follow. Each test case contains a postfix expression.
+
+Output:
+
+For each test case, in a new line. Evaluate the postfix expression and print the value.
+
+
+
+Constraints:
+
+1 <= T <= 100
+
+1 <= length of expression <= 100
+
+
+
+Example:
+
+Input:
+
+2
+
+231*+9-
+
+123+*8-
+
+Output:
+
+-4
+
+-3
+
+Explanation: 
+
+Test Case 1: 
+
+231*+9-
+
+- : ( ) - ( )
+
+9 : ( ) - (9)
+
++ : ( ( ) + ( ) ) - (9)
+
+*: ( ( ) + ( ( ) * ( ) ) ) - (9)
+
+1 : ( ( ) + ( ( ) * (1) ) ) - (9)
+
+3 : ( ( ) + ( (3) * (1) ) ) - (9)
+
+2 : ( (2) + ( (3) * (1) ) ) - (9) 
+
+Result = (2 + 3) - 9 = 5 - 9 = -4
+
+Test Case 2: 
+
+123+*8-
+
+- : ( ) - ( )
+
+8 : ( ) - (8)
+
+* : ( ( ) * ( ) ) - (8)
+
++ : ( ( ) * ( ( ) + ( ) ) ) - (8)
+
+3 : ( ( ) * ( ( ) + (3) ) ) - (8)
+
+2 : ( ( ) * ( (2) + (3) ) ) - (8)
+
+1 : ( (1) * ( (2) + (3) ) ) - (8) 
+
+Result = (1 * 5) - 8 = 5 - 8 = -3
